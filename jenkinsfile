@@ -1,0 +1,8 @@
+node('master'){
+    stage('preparation'){
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'fa966be4-bd7c-43d8-90cf-f46657b881e5', url: 'https://github.com/Harika1994/training_march']]])
+    }
+    stage('build'){
+        bat 'ipconfig > ip.txt'
+    }
+}
